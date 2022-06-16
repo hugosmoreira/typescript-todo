@@ -8,7 +8,7 @@ const Header = () => {
         <header className={styles.header}>
             <h1>React + TS Todo</h1>
         </header>
-        <h1>Conteudo...</h1>
+        
     </div>
   )
 }
