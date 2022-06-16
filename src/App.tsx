@@ -3,6 +3,8 @@ import Header from './components/Header';
 import styles from './App.module.css';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import {Task} from './interfaces/ITask';
 
 function App() {
   return (
