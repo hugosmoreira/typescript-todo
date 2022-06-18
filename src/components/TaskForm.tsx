@@ -4,15 +4,26 @@ import { Task} from '../interfaces/ITask';
 
 type Props = {
     btnText: string
+    taskList: Task[]
+    setTaskList?: React.Dispatch<React.SetStateAction<Task[]>>
 }
 
-const TaskForm = ({btnText}: Props) => {
+const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
 
     const [id, setId] = useState<number>(0);
     const [title, setTitle] = useState<string>('');
     const [difficulty, setDifficulty] = useState<string>('');
 
-    const addTaskHandler = () => {
+    const addTaskHandler = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const id = Math.floor(Math.random() * 1000);
+
+        const newTask: Task = {id, title, difficulty};
+        
+
+        setTaskList([...taskList, newTask]);
+        setTitle('');
+        setDifficulty('');
 
     }
 
