@@ -5,7 +5,7 @@ import { Task} from '../interfaces/ITask';
 type Props = {
     btnText: string
     taskList: Task[]
-    setTaskList?: React.Dispatch<React.SetStateAction<Task[]>>
+    setTaskList?: React.Dispatch<React.SetStateAction<Task[] >>
 }
 
 const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
@@ -21,7 +21,7 @@ const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
         const newTask: Task = {id, title, difficulty};
         
 
-        setTaskList([...taskList, newTask]);
+        setTaskList!([...taskList, newTask]);
         setTitle('');
         setDifficulty('');
 
@@ -43,11 +43,11 @@ const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
         <form className={styles.form} onSubmit={addTaskHandler}>
             <div className={styles.input_container}>
                 <label htmlFor="title">Titulo:</label>
-                <input type="text" name="title" placeholder='Titulo da sua tarefa' onChange={handleChange}/>
+                <input type="text" name="title" placeholder='Titulo da sua tarefa' onChange={handleChange} value={title}/>
             </div>
             <div className={styles.input_container}>
                 <label htmlFor="difficulty">Dificuldate:</label>
-                <input type="text" name="difficulty" placeholder='Dificuldade de tarefa' onChange={handleChange}/>
+                <input type="text" name="difficulty" placeholder='Dificuldade de tarefa' onChange={handleChange} value={difficulty}/>
             </div>
             <input type="submit" value={btnText} />
         </form>
