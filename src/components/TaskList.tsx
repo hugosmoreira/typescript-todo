@@ -8,11 +8,22 @@ type Props = {
   taskList: Task[]
 }
 
-const TaskList = (props: Props) => {
+const TaskList = ({taskList}: Props) => {
   return (
     <>
-      {TaskList.length > 0 ? (
-        <p>Tem tarefas cadastradas</p>
+      {taskList.length > 0 ? (
+        taskList.map((task) => (
+          <div key={task.id} className={styles.task}>
+            <div className={styles.details}>
+              <h4>{task.title}</h4>
+              <p>Dificuldate: {task.difficulty}</p>
+            </div>
+            <div className={styles.actions}>
+              <i className='bi bi-pencil'></i>
+              <i className='bi bi-trash'></i>
+            </div>
+          </div>
+        ))
       ) : (
         <p>Nenhuma tarefa cadastrada</p>
       )}
