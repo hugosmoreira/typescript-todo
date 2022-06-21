@@ -6,6 +6,7 @@ type Props = {
     btnText: string
     taskList: Task[]
     setTaskList?: React.Dispatch<React.SetStateAction<Task[] >>
+    
 }
 
 const TaskForm = ({btnText, taskList, setTaskList}: Props) => {

@@ -7,6 +7,7 @@ import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {Task} from './interfaces/ITask';
+import Modal from './components/Modal';
 
 
 
@@ -14,9 +15,14 @@ function App() {
 
   const [taskList, setTaskList] = useState<Task[]>([]);
 
+  const deleteTask = (id: number) => {
+    setTaskList(taskList.filter(task => task.id !== id));
+  }
+ 
 
   return (
     <div className="App">
+      <Modal children={<TaskForm btnText='Editar Tarefa' taskList={taskList} />} />
      <Header />
       <main className={styles.main}>
         <div>
@@ -25,7 +31,7 @@ function App() {
         </div>
         <div>
           <h2>Suas Tarefas</h2>
-          <TaskList taskList={[]} />
+          <TaskList taskList={[]} handleDelete={deleteTask}/>
         </div>
         
 
